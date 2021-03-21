@@ -35,7 +35,6 @@ class ConvertBoundingBoxNode
 			boundingboxes_sub_ = nh_.subscribe<darknet_ros_msgs::BoundingBoxes>("/darknet_ros/bounding_boxes", 1, &ConvertBoundingBoxNode::boundingbox_callback, this);
 			pub_result_ = nh_.advertise<convert_2d_to_3d::Result>("detected_object", 1);
 
-            //cv::namedWindow("result", cv::WINDOW_AUTOSIZE);
             ROS_INFO("[%s] initialized...", ros::this_node::getName().c_str());
         }
         ~ConvertBoundingBoxNode()
@@ -60,8 +59,6 @@ class ConvertBoundingBoxNode
 		if(gBoundingboxes.bounding_boxes.empty())
 		    return;
 
-	//    printf("Bounding boxes size : %d\n", gBoundingboxes.bounding_boxes.size());
-
 		double x = 0.0;
 		double y = 0.0;
 		double z = 0.0;
@@ -74,28 +71,7 @@ class ConvertBoundingBoxNode
 		    y = p.y;
 		    z = p.z;
 		    id = gBoundingboxes.bounding_boxes[i].Class;
-//		    std::cout <<"point : " << p << std::endl;
-//		    std::cout <<" ==> " << p.x << " , " << p.y << " , " << p.z << std::endl;
 
-		    // create static tf
-/*
-		    geometry_msgs::TransformStamped transformStamped;
-		    std::string object_coordinate = "object_coordinate";
-		    transformStamped.header.frame_id = "camera_color_optical_frame";
-		    transformStamped.child_frame_id = object_coordinate;
-
-		    transformStamped.transform.translation.x = x;
-		    transformStamped.transform.translation.y = y;
-		    transformStamped.transform.translation.z = z;
-
-		    transformStamped.transform.rotation.x = 0;
-		    transformStamped.transform.rotation.y = 0;
-		    transformStamped.transform.rotation.z = 0;
-		    transformStamped.transform.rotation.w = 1;
-
-		    transformStamped.header.stamp = ros::Time::now();
-		    tfb_.sendTransform(transformStamped);
-*/
 		    // Publish result
 		    convert_2d_to_3d::Result msg;
 		    msg.type = "detected_object";
@@ -120,11 +96,10 @@ class ConvertBoundingBoxNode
 
     private:
         ros::NodeHandle nh_;
-        tf2_ros::TransformBroadcaster tfb_;
-	ros::Subscriber pointcloud_sub_;
-	ros::Subscriber boundingboxes_sub_;
-	ros::Publisher pub_result_;
-	darknet_ros_msgs::BoundingBoxes gBoundingboxes;
+		ros::Subscriber pointcloud_sub_;
+		ros::Subscriber boundingboxes_sub_;
+		ros::Publisher pub_result_;
+		darknet_ros_msgs::BoundingBoxes gBoundingboxes;
 };
 
 int main(int argc, char** argv)

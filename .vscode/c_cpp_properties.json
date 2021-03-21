@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/user/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/user/catkin_ws/src/darknet_ros/darknet_ros/include/**",
+        "/home/user/catkin_ws/src/dynamixel_ros_control/include/**",
+        "/home/user/catkin_ws/src/gazebo_mimic_joint_plugin/include/**",
+        "/home/user/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_bullet/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_eigen/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_geometry_msgs/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_kdl/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_msgs/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_ros/include/**",
+        "/home/user/catkin_ws/src/geometry2/tf2_sensor_msgs/include/**",
+        "/home/user/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/user/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/user/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
